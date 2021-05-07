@@ -31,18 +31,13 @@ public class RentalTest {
         newReleaseRentals = new ArrayList<>();
         newReleaseRentals.add(new Rental(newRelease, 1));
         newReleaseRentals.add(new Rental(newRelease, 2));
-        newReleaseRentals.add(new Rental(newRelease, 3));
-        newReleaseRentals.add(new Rental(newRelease, 4));
 
         childrensRentals = new ArrayList<>();
         childrensRentals.add(new Rental(childrens, 1));
-        childrensRentals.add(new Rental(childrens, 2));
-        childrensRentals.add(new Rental(childrens, 3));
         childrensRentals.add(new Rental(childrens, 4));
 
         regularRentals = new ArrayList<>();
         regularRentals.add(new Rental(regular, 1));
-        regularRentals.add(new Rental(regular, 2));
         regularRentals.add(new Rental(regular, 3));
         regularRentals.add(new Rental(regular, 4));
     }
@@ -79,8 +74,8 @@ public class RentalTest {
 
         expected = 3.0;
 
-        assertEquals(expected, (actual = childrensRentals.get(3).getCharge()),
-                "The amount of money owed for the rental: \"" + childrensRentals.get(3) + "\" should be " + expected + "\n" +
+        assertEquals(expected, (actual = childrensRentals.get(1).getCharge()),
+                "The amount of money owed for the rental: \"" + childrensRentals.get(1) + "\" should be " + expected + "\n" +
                         "The amount was: " + actual + ".");
 
     }
@@ -105,14 +100,14 @@ public class RentalTest {
 
         expected = 3.5;
 
-        assertEquals(expected, (actual = regularRentals.get(2).getCharge()),
-                "The amount of money owed for the rental: \"" + regularRentals.get(2) + "\" should be " + expected + "\n" +
+        assertEquals(expected, (actual = regularRentals.get(1).getCharge()),
+                "The amount of money owed for the rental: \"" + regularRentals.get(1) + "\" should be " + expected + "\n" +
                         "The amount was: " + actual + ".");
 
         expected = 5.0;
 
-        assertEquals(expected, (actual = regularRentals.get(3).getCharge()),
-                "The amount of money owed for the rental: \"" + regularRentals.get(3) + "\" should be " + expected + "\n" +
+        assertEquals(expected, (actual = regularRentals.get(2).getCharge()),
+                "The amount of money owed for the rental: \"" + regularRentals.get(2) + "\" should be " + expected + "\n" +
                         "The amount was: " + actual + ".");
 
     }
