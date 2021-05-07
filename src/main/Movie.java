@@ -25,4 +25,12 @@ public class Movie {
     public String getTitle (){
         return title;
     };
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "title='" + title + '\'' +
+                ", priceCode=" + priceCode +
+                '}';
+    }
 }

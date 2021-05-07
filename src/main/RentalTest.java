@@ -114,4 +114,40 @@ public class RentalTest {
 
     }
 
+    @Test
+    @DisplayName("Returns the number of points basend on the type of the rental object.")
+    public void testGetFrequentRenterPoints() {
+
+        int actual;
+        int expected;
+
+        /** Rental of type NEW_RELEASE */
+
+        /** Rental-time < 1 */
+
+        expected = 1;
+
+        assertEquals(expected, (actual = newReleaseRentals.get(0).getFrequentRenterPoints()),
+                "The number of points for the rental: \"" + newReleaseRentals.get(0) + "\" should be " + expected + "\n" +
+                        "The number was: " + actual + ".");
+
+        /** Rental-time >= 1 */
+
+        expected = 2;
+
+        assertEquals(expected, (actual = newReleaseRentals.get(1).getFrequentRenterPoints()),
+                "The number of points for the rental: \"" + newReleaseRentals.get(1) + "\" should be " + expected + "\n" +
+                        "The number was: " + actual + ".");
+
+
+        /** Rental of other type */
+
+        expected = 1;
+
+        assertEquals(expected, (actual = regularRentals.get(0).getFrequentRenterPoints()),
+                "The number of points for the rental: \"" + regularRentals.get(0) + "\" should be " + expected + "\n" +
+                        "The number was: " + actual + ".");
+
+    }
+
 }
