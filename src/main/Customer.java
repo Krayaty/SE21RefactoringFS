@@ -32,27 +32,15 @@ public class Customer {
 
         while (enum_rentals.hasMoreElements()) {
             Rental each = (Rental) enum_rentals.nextElement();
-
             this.frequentRenterPoints += each.getFrequentRenterPoints();
-
-            //show figures for this rental
-            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + each.getCharge() + "\n";
             this.totalCharge += each.getCharge();
+            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + each.getCharge() + "\n";
         }
 
-        //add footer lines
-        result += "Amount owed is " + this.getTotalCharge() + "\n";
-        result += "You earned " + this.getFrequentReterPoints() + " frequent renter points";
+        result += "Amount owed is " + this.totalCharge + "\n";
+        result += "You earned " + this.frequentRenterPoints + " frequent renter points";
 
         return result;
-    }
-
-    private String getTotalCharge(){
-        return String.valueOf(this.totalCharge);
-    }
-
-    private String getFrequentReterPoints(){
-        return String.valueOf(frequentRenterPoints);
     }
 
 }

@@ -174,7 +174,7 @@ public class CustomerTest {
 
         /** Clear rentals collection */
 
-        customer.getRentals().clear();
+        customer = new Customer("Customer");
 
         assertEquals(0, customer.getRentals().size(),
                 "On startup the collection of rentals should be empty (size 0).\n" +
@@ -233,7 +233,7 @@ public class CustomerTest {
 
         /** Clear rentals collection */
 
-        customer.getRentals().clear();
+        customer = new Customer("Customer");
 
         assertEquals(0, customer.getRentals().size(),
                 "On startup the collection of rentals should be empty (size 0).\n" +
@@ -293,8 +293,18 @@ public class CustomerTest {
                         "The returned string was:\n\"" + statement + "\".");
 
 
+        /** Clear rentals collection */
+
+        customer = new Customer("Customer");
+
+        assertEquals(0, customer.getRentals().size(),
+                "On startup the collection of rentals should be empty (size 0).\n" +
+                        "The size was: " + customer.getRentals().size() + ".");
+
+
         /** Many retails of many type */
 
+        newReleaseRentals.forEach(customer::addRental);
         childrensRentals.forEach(customer::addRental);
         regularRentals.forEach(customer::addRental);
         totalamount = 50.0;
