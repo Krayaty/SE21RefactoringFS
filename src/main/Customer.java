@@ -36,7 +36,7 @@ public class Customer {
             this.frequentRenterPoints += each.getFrequentRenterPoints();
 
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + each.getChargeString() + "\n";
+            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + each.getCharge() + "\n";
             this.totalCharge += each.getCharge();
         }
 

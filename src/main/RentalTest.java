@@ -21,9 +21,12 @@ public class RentalTest {
     @BeforeEach
     public void setUp() throws Exception {
 
-        newRelease = new Movie("Movie1", Movie.NEW_RELEASE);
-        childrens = new Movie("Movie2", Movie.CHILDRENS);
-        regular = new Movie("Movie3", Movie.REGULAR);
+        newRelease = new Movie("Movie1");
+        newRelease.setPrice(Movie.NEW_RELEASE);
+        childrens = new Movie("Movie2");
+        childrens.setPrice(Movie.CHILDRENS);
+        regular = new Movie("Movie3");
+        regular.setPrice(Movie.REGULAR);
 
         newReleaseRentals = new ArrayList<>();
         newReleaseRentals.add(new Rental(newRelease, 1));
