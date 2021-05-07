@@ -53,4 +53,8 @@ public class Rental {
         return result;
     }
 
+    protected String getChargeString(){
+        return String.valueOf(this.getCharge());
+    }
+
 }

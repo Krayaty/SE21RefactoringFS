@@ -1,28 +1,30 @@
 package main;
 
+import lombok.Getter;
+
 import java.lang.*;
 import java.util.*;
 
+@Getter
 public class Customer {
 
     private String name;
+    private double totalCharge;
+    private int frequentRenterPoints;
     private Vector rentals = new Vector();
 
-    public Customer (String newname){
-        name = newname;
+    public Customer (String name){
+        this.name = name;
+        this.totalCharge = 0;
+        this.frequentRenterPoints = 0;
     };
 
     public void addRental(Rental arg) {
         rentals.addElement(arg);
     };
 
-    public String getName (){
-        return name;
-    };
-
     public String statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
+
         Enumeration enum_rentals = rentals.elements();
 
         String result = "main.Rental Record for " + this.getName() + "\n" +
@@ -31,22 +33,26 @@ public class Customer {
         while (enum_rentals.hasMoreElements()) {
             Rental each = (Rental) enum_rentals.nextElement();
 
-            frequentRenterPoints += each.getFrequentRenterPoints();
+            this.frequentRenterPoints += each.getFrequentRenterPoints();
 
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(each.getCharge()) + "\n";
-            totalAmount += each.getCharge();
+            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + each.getChargeString() + "\n";
+            this.totalCharge += each.getCharge();
         }
 
         //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
+        result += "Amount owed is " + this.getTotalCharge() + "\n";
+        result += "You earned " + this.getFrequentReterPoints() + " frequent renter points";
 
         return result;
     }
 
-    protected Vector getRentals(){
-        return this.rentals;
+    private String getTotalCharge(){
+        return String.valueOf(this.totalCharge);
+    }
+
+    private String getFrequentReterPoints(){
+        return String.valueOf(frequentRenterPoints);
     }
 
 }
