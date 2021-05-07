@@ -3,7 +3,7 @@ package main;
 import java.lang.*;
 import java.util.*;
 
-class Customer {
+public class Customer {
 
     private String name;
     private Vector rentals = new Vector();
@@ -47,7 +47,7 @@ class Customer {
         return result;
     }
 
-    private double amountFor(Rental each) {
+    protected double amountFor(Rental each) {
         double thisAmount = 0;
         switch (each.getMovie().getPriceCode()) {
             case Movie.REGULAR:
@@ -65,6 +65,10 @@ class Customer {
                 break;
         }
         return thisAmount;
+    }
+
+    protected Vector getRentals(){
+        return this.rentals;
     }
 
 }

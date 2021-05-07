@@ -1,6 +1,6 @@
 package main;
 
-class Rental {
+public class Rental {
 
     private Movie movie;
     private int daysRented;
@@ -16,5 +16,13 @@ class Rental {
 
     public Movie getMovie() {
         return movie;
+    }
+
+    @Override
+    public String toString() {
+        return "Rental{" +
+                "movie=" + movie +
+                ", daysRented=" + daysRented +
+                '}';
     }
 }
